@@ -6,6 +6,23 @@ public class GameManager : MonoBehaviour
 {
     int ScoreNow;
     int HighestScore;
+
+    public void AddScore()
+    {
+
+    }
+
+    public void SetHighestScore()
+    {
+
+    }
+
+    public void GameOver()
+    {
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {

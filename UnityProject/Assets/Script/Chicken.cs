@@ -7,6 +7,22 @@ public class Chicken : MonoBehaviour
     public float JumpHeight;
     public bool dead;
 
+    private void Jump()
+    {
+
+    }
+
+    private void DeadOrNot()
+    {
+
+    }
+
+    private void PassPipe()
+    {
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {

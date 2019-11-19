@@ -5,6 +5,12 @@ using UnityEngine;
 public class floor : MonoBehaviour
 {
     public float Speed;
+
+    private void Move()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
