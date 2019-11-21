@@ -42,7 +42,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BornPipe();
+        // 延遲重複調用
+        InvokeRepeating("BornPipe", 0, 1);
     }
 
     // Update is called once per frame
