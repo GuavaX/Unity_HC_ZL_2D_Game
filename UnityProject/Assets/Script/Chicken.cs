@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Chicken : MonoBehaviour
 {
+
+    public GameObject goScore, goGM;
+
     [Header("跳躍高度"),Range(0,1000)]
     public float JumpHeight;
     public bool dead;
@@ -13,8 +16,11 @@ public class Chicken : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            print("按下左鍵");
+            goGM.SetActive(true);
+            goScore.SetActive(true);
             rig.AddForce(new Vector3(0, JumpHeight));
         }
     }

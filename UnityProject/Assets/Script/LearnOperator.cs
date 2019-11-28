@@ -22,7 +22,30 @@ public class LearnOperator : MonoBehaviour
         print(c == d);
         print(c != d);
 
+        //邏輯運算子&&
+        print(true  && true );
+        print(true  && false);
+        print(false && true );
+        print(false && false);
 
+        //邏輯運算子||
+        print(true || true);
+        print(true || false);
+        print(false || true);
+        print(false || false);
+
+
+
+    }
+    private void Jump()
+    {
+        
+    }
+
+    void OnMouseDown()
+    {
+        print("是在哈囉");
+        //transform.position = new Vector2(0, 0);//點擊時回到(0,0)
     }
 
     // Update is called once per frame
