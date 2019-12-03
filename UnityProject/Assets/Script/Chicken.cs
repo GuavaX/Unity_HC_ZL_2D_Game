@@ -14,20 +14,32 @@ public class Chicken : MonoBehaviour
     [Header("剛體")]
     public Rigidbody2D rig;
 
+    public GameManager gm;
+
     private void Jump()
     {
+        if (dead) { return; }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             print("按下左鍵");
             goGM.SetActive(true);
             goScore.SetActive(true);
-            rig.AddForce(new Vector3(0, JumpHeight));
+            rig.gravityScale = 1;
+
+            //剛體.睡覺
+            rig.Sleep();
+            rig.AddForce(new Vector2(0, JumpHeight));
+
+
         }
+
+        rig.SetRotation(5 * rig.velocity.y);
     }
 
     private void DeadOrNot()
     {
-
+        dead = true;
+        gm.GameOver();
     }
 
     private void PassPipe()
@@ -46,5 +58,17 @@ public class Chicken : MonoBehaviour
     void Update()
     {
         Jump();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print(collision.gameObject.name);
+
+        DeadOrNot();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DeadOrNot();
     }
 }

@@ -400,6 +400,7 @@ MonoBehaviour:
   JumpHeight: 300
   dead: 0
   rig: {fileID: 235331182}
+  gm: {fileID: 556280869}
 --- !u!58 &235331181
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -431,7 +432,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -594,6 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipe: {fileID: 4093806340393489850, guid: a7f2233a65d2c5f49b1ed110328fc327, type: 3}
+  goUI: {fileID: 1221616937}
 --- !u!4 &556280870
 Transform:
   m_ObjectHideFlags: 0
@@ -1148,7 +1150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1221616938}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: "\u4ECB\u9762\u7FA4\u7D44"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

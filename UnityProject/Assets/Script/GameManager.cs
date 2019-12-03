@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [Header("水管")]
     public GameObject pipe;
 
+    [Header("介面群組")]
+    public GameObject goUI;
+
     /// <summary>
     /// 生成水管
     /// </summary>
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
+        goUI.SetActive(true);
     }
 
 
