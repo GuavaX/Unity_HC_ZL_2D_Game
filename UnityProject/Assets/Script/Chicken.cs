@@ -16,6 +16,10 @@ public class Chicken : MonoBehaviour
 
     public GameManager gm;
 
+    [Header("音效區域")]
+    public AudioSource aud;
+    public AudioClip soundJump, soundHit, soundAdd;
+
     private void Jump()
     {
         if (dead) { return; }
@@ -30,6 +34,7 @@ public class Chicken : MonoBehaviour
             rig.Sleep();
             rig.AddForce(new Vector2(0, JumpHeight));
 
+            aud.PlayOneShot(soundJump, 2f);
 
         }
 
@@ -38,13 +43,16 @@ public class Chicken : MonoBehaviour
 
     private void DeadOrNot()
     {
+        if (dead) { return; }
         dead = true;
         gm.GameOver();
     }
 
     private void PassPipe()
     {
-
+        if (dead) { return; }
+        aud.PlayOneShot(soundAdd, 2f);
+        gm.AddScore(1);
     }
 
 
@@ -63,12 +71,24 @@ public class Chicken : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         print(collision.gameObject.name);
-
+        aud.PlayOneShot(soundHit, 2f);
         DeadOrNot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DeadOrNot();
+        if (dead) { return; }
+        if ((collision.gameObject.name == "水管 - 上") || (collision.gameObject.name == "水管 - 下"))
+        {
+            DeadOrNot();
+            aud.PlayOneShot(soundHit, 2f);
+        }
+
+        if (collision.gameObject.name == "加分區域")
+        {
+            PassPipe();
+        }
+
+
     }
 }

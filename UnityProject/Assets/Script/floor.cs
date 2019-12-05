@@ -5,7 +5,7 @@ using UnityEngine;
 public class floor : MonoBehaviour
 {
     [Header("速度"),Range(0,10)]
-    public float Speed;
+    public static float Speed = 5f;
 
     [Header("地板")]
     public Transform Floor;
