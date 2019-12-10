@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,10 +63,29 @@ public class GameManager : MonoBehaviour
         floor.Speed = 0;
     }
 
+    /// <summary>
+    /// 結束遊戲
+    /// </summary>
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    /// <summary>
+    /// 重新遊戲
+    /// </summary>
+    public void Replay()
+    {
+        //Application.LoadLevel("遊戲場景");
+        SceneManager.LoadScene("遊戲場景");
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        //遊戲開始時，重設靜態值
+        floor.Speed = 5f;
+
         // 延遲重複調用
         InvokeRepeating("BornPipe", 0, 1.5f);
 
@@ -79,4 +99,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
 }
